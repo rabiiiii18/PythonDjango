@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['blog-i2vw.onrender.com','blog.ravishrestha.info.np']
 
 
 # Application definition
@@ -134,7 +134,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'public')
 ]
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 STATIC_ROOT =os.path.join( BASE_DIR , "staticfiles")
 # Default primary key field type
