@@ -1,0 +1,72 @@
+ <!-- Navigation-->
+ <nav class="navbar navbar-expand-lg bg-body-tertiary" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="{%url 'crud:home' %}">BlogSpot</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto py-4 py-lg-0">
+          <li class="nav-item">
+            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{%url 'crud:home' %}"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{%url 'crud:about' %}"
+              >About</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{%url 'crud:contacts' %}"
+              >Contact</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{%url 'crud:create' %}"
+              >Create Blog</a
+            >
+          </li>
+          
+          {%if not user.is_authenticated%}
+          <li class="nav-item">
+            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{%url 'users:landing' %}"
+              >Sign Up</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{%url 'users:loginUser' %}"
+              >Sign in</a
+            >
+          </li>
+          {%endif%}
+          {%if user.is_authenticated%}
+          <li class="nav-item">
+            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{%url 'users:logoutUser' %}"
+              >Sign out</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-lg-3 py-3 py-lg-4" href=""
+              >Welcome {{user}}</a
+            >
+          </li>
+          {%endif%}
+        </ul>
+        <form class="d-flex" method="get">
+          {%csrf_token%}
+          <input class="form-control me-2" type="search" placeholder="Search"  name="search" aria-label="Search">
+          <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>

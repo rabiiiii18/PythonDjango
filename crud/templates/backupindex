@@ -1,0 +1,16 @@
+<h1>This is My Templates</h1>
+
+{%if blog %}
+<h2>{{blog.title}}</h2>
+    <h5>{{blog.description}}</h5>
+    <button>delete</button>
+{%endif%}
+
+{%if Blogs%}
+    {%for blog in Blogs %}
+    <a href="{%url 'particular' blog.id%}">
+        <h2>{{blog.title}}</h2>
+    </a>
+    <h5>{{blog.description}}</h5>
+    {%endfor%}
+{%endif%}
